@@ -1,0 +1,28 @@
+/*------------------------------------*\
+  Elements > hr
+\*------------------------------------*/
+
+hr {
+  margin: double($base-spacing-unit) 0;
+
+  /* styled hr
+   *  based on https://css-tricks.com/examples/hrs/
+   */
+  background-color: $color-border;
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #999;
+  color: #666;
+  text-align: center;
+
+  &:after {
+    content: "§";
+    display: inline-block;
+    position: relative;
+    top: -0.9em;
+    font-size: 1.0em;
+    padding: 0 0.25em;
+    background: white;
+  }
+}
