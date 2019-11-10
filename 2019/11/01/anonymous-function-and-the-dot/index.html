@@ -6,9 +6,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>A Programmer's Note</title>
-  <meta name='description' content="A programmers note">
-  <link rel='canonical' href="https://ragiragi.github.io//">
+  <title>Anonymous Function and the Dot</title>
+  <meta name='description' content="elixir를 처음 접할 때 가장 🤔스러웠던 부분은 익명 함수(anonymousfunction) 호출 부분이었다. 익명함수를 호출하기 위해서는func_name.(args)와 같은 문법을 써야하는데">
+  <link rel='canonical' href="https://ragiragi.github.io//2019/11/01/anonymous-function-and-the-dot/">
   <link rel='alternate' type='application/rss+xml' title='A Programmer's Note' href="https://ragiragi.github.io//feed.xml">
   <link rel="stylesheet" id="font-bitter-css" href="//fonts.googleapis.com/css?family=Bitter:400,700" type="text/css" media="screen">
   <style>
@@ -90,51 +90,87 @@
 </header>
 
 
-    <div class='o-wrapper'>
-  <div class='o-grid'>
-    
-      <div class='o-grid__col'>
-
-  <a href='/2019/11/07/adopting-elixir/' class='c-post-card  c-post-card--first  '>
-    <h3 class='c-post-card__title'>엘릭서 도입하기</h3>
-
-    
-      <img src='/images/posts/2019-11-07-adopting-elixir.jpg' class='c-post__image' alt='엘릭서 도입하기'>
     
 
-    <p class='c-post-card__excerpt u-font-medium'>
-      Adopting Elixir - From Concept to Production 보통 특정 프로그래밍 언어를 주제로 하는 책들이라면 문법, 타입, 내장 라이브러리 혹은 프레임워크를 다루는 것들이 일반적이지만 이 책은 조금 궤를 달리한다. 다른 책들이 잘 다루지 않는 배포, 프로파일링,...
-    </p>
 
-    <span class='c-post-card__date'>07 Nov 2019</span>
-  </a>
+  <meta itemprop='og:image' content='https://ragiragi.github.io//images/posts/thinking-face.png'>
 
-</div>
-    
-      <div class='o-grid__col'>
 
-  <a href='/2019/11/01/anonymous-function-and-the-dot/' class='c-post-card   c-post-card--last '>
-    <h3 class='c-post-card__title'>Anonymous Function and the Dot</h3>
-
-    
-      <img src='/images/posts/thinking-face.png' class='c-post__image' alt='Anonymous Function and the Dot'>
-    
-
-    <p class='c-post-card__excerpt u-font-medium'>
-      elixir를 처음 접할 때 가장 🤔스러웠던 부분은 익명 함수(anonymous function) 호출 부분이었다. 익명함수를 호출하기 위해서는 func_name.(args)와 같은 문법을 써야하는데 iex(1)&gt; say = fn s -&gt; IO.puts(s) end #Function&lt;6.128620087/1 in :erl_eval.expr/5&gt; iex(2)&gt; say("Hello") # X **...
-    </p>
-
-    <span class='c-post-card__date'>01 Nov 2019</span>
-  </a>
-
-</div>
-    
-  </div>
+<div class='o-wrapper'>
 
   <div class='o-grid'>
-    
+    <div class='o-grid__col'>
+      <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
+
+        <h1 class='c-post__title u-text-center'>Anonymous Function and the Dot</h1>
+
+        <time class='c-post__date' datetime='2019-11-01T00:00:00+00:00' itemprop='datePublished'>01 Nov 2019</time>
+
+        <div class='c-content' itemprop='articleBody'>
+          
+  <img src='/images/posts/thinking-face.png' class='c-post__image' alt='Anonymous Function and the Dot'>
 
 
+          <p>elixir를 처음 접할 때 가장 🤔스러웠던 부분은 익명 함수(anonymous
+function) 호출 부분이었다. 익명함수를 호출하기 위해서는
+<code class="highlighter-rouge">func_name.(args)</code>와 같은 문법을 써야하는데</p>
+
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iex</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">say</span> <span class="o">=</span> <span class="k">fn</span> <span class="n">s</span> <span class="o">-&gt;</span> <span class="no">IO</span><span class="o">.</span><span class="n">puts</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">end</span>
+<span class="c1">#Function&lt;6.128620087/1 in :erl_eval.expr/5&gt;</span>
+<span class="n">iex</span><span class="p">(</span><span class="m">2</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">say</span><span class="p">(</span><span class="sd">"</span><span class="s2">Hello"</span><span class="p">)</span>    <span class="c1"># X</span>
+<span class="o">**</span> <span class="p">(</span><span class="no">CompileError</span><span class="p">)</span> <span class="ss">iex:</span><span class="m">2</span><span class="p">:</span> <span class="n">undefined</span> <span class="n">function</span> <span class="n">say</span><span class="o">/</span><span class="m">1</span>
+<span class="n">iex</span><span class="p">(</span><span class="m">2</span><span class="p">)</span><span class="o">&gt;</span> <span class="n">say</span><span class="o">.</span><span class="p">(</span><span class="sd">"</span><span class="s2">Hello"</span><span class="p">)</span>   <span class="c1"># O</span>
+<span class="no">Hello</span>
+<span class="ss">:ok</span>
+</code></pre></div></div>
+
+<p>반면 기명 함수(named function)는 일반적인 방법으로 호출 가능하다.</p>
+
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">$</span> <span class="n">iex</span> <span class="o">-</span><span class="n">e</span> <span class="sd">"</span><span class="s2">defmodule Greeter, do: (def say(s), do: IO.puts(s))"</span>
+<span class="o">...</span>
+<span class="n">iex</span><span class="p">(</span><span class="m">1</span><span class="p">)</span><span class="o">&gt;</span> <span class="no">Greeter</span><span class="o">.</span><span class="n">say</span><span class="p">(</span><span class="sd">"</span><span class="s2">Hello"</span><span class="p">)</span>
+<span class="no">Hello</span>
+<span class="ss">:ok</span>
+</code></pre></div></div>
+
+<hr />
+
+<p>이런 특징을 보이는 이유는 <a href="https://elixirforum.com/t/anonymous-functions-the-dot-and-parameters/10886/7">언어 설계 때문</a>이라 한다. Elixir는
+lisp-2 스타일 언어로서, 함수(named function)와 변수(variables)가 각기
+다른 namespace를 사용하기 때문에 일반 함수 호출 문법으로는 변수에
+바인드 된 함수를 찾을 수가 없는 것. (반대로 lisp-1 계열 언어들은
+함수와 변수가 같은 namespace를 사용한다.) 결국 별도의 함수 호출 문법이
+필요했고 그게 바로 “.” 호출이라 한다. 물론 ‘1차로 함수 영역에서 찾고
+없으면 2차로 변수 영역에 정의된 함수를 찾아주면 좋지 않을까?’라는 단순
+무식한 생각도 들지만 분명 그로 인한 부작용도 있을 터이고 이는 언어
+<del>취향</del> 설계의 영역이니 그냥 따르기로…</p>
+
+<h5 id="footnote">Footnote</h5>
+<ul>
+  <li>다른 lisp-2 스타일로는 Common Lisp, Ruby, Perl, Erlang 이 있다고
+한다.</li>
+  <li>쉽게 설명해보려다가 실패한듯한 <a href="https://stackoverflow.com/a/18023790/1105414">José의 글</a>도 참고해볼 만하다.</li>
+  <li>Joe Armstrong(Erlang 창시자)이 일찍이 오래전 <a href="https://joearms.github.io/published/2013-05-31-a-week-with-elixir.html">elixir 리뷰</a> 글에서
+“이거 지금 안고치면 나처럼 20년동안 사람들에게 설명하느라 시간
+허비하고 머리가 하얗게 세버릴 껄?”라고 충고 했었다. 🤣</li>
+</ul>
+
+
+        </div>
+
+        <div class='c-tags'>
+          
+            <a href='/tag/elixir'>elixir</a>
+          
+            <a href='/tag/function'>function</a>
+          
+            <a href='/tag/lisp-2'>lisp-2</a>
+          
+        </div>
+
+      </article>
+
+    </div>
   </div>
 </div>
 

@@ -1,38 +1,122 @@
----
-layout: null
----
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.title | xml_escape }}</title>
-    <description>{{ site.description | xml_escape }}</description>
-    <link>{{ site.url }}{{ site.baseurl }}/</link>
-    <atom:link href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" rel="self" type="application/rss+xml"/>
-    <pubDate>{{ site.time | date_to_rfc822 }}</pubDate>
-    <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
-    <generator>Jekyll v{{ jekyll.version }}</generator>
+    <title>A Programmer's Note</title>
+    <description>A programmers note</description>
+    <link>https://ragiragi.github.io//</link>
+    <atom:link href="https://ragiragi.github.io//feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sun, 10 Nov 2019 04:58:29 +0000</pubDate>
+    <lastBuildDate>Sun, 10 Nov 2019 04:58:29 +0000</lastBuildDate>
+    <generator>Jekyll v3.6.3</generator>
 
-    {% for post in site.posts %}
+    
       <item>
-        <title>{{ post.title | xml_escape }}</title>
-        <description>{{ post.content | xml_escape }}</description>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <link>{{ post.url | prepend: site.baseurl | prepend: site.url }}</link>
-        <guid isPermaLink="true">{{ post.url | prepend: site.baseurl | prepend: site.url }}</guid>
-      </item>
-    {% endfor %}
+        <title>엘릭서 도입하기</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://pragprog.com/book/tvmelixir/adopting-elixir&quot;&gt;&lt;strong&gt;Adopting Elixir&lt;/strong&gt; - &lt;em&gt;From Concept to Production&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 
-    {% for page in site.pages %}
-      {% if page.layout == 'page' %}
-        {% if page.name != '404.md' %}
-          <item>
-            <title>{{ page.title | xml_escape }}</title>
-            <description>{{ page.content | xml_escape }}</description>
-            <link>{{ page.url | prepend: site.baseurl | prepend: site.url }}</link>
-          </item>
-        {% endif %}
-      {% endif %}
-    {% endfor %}
+&lt;p&gt;보통 특정 프로그래밍 언어를 주제로 하는 책들이라면 문법, 타입, 내장
+라이브러리 혹은 프레임워크를 다루는 것들이 일반적이지만 이 책은 조금
+궤를 달리한다. 다른 책들이 잘 다루지 않는 배포, 프로파일링, 코드 품질
+관리, 레거시 시스템 전환, 로깅, 에러 트레이싱 등과 같이 Elixir
+프로그래밍 언어로 만든 제품을 실제 프로덕션 환경에 올릴 때 맞닥뜨리게
+되는 문제를 이야기한다.&lt;/p&gt;
+
+&lt;p&gt;이런 부분들은 노하우의 영역이라 신생 언어의 경우 자료가 많지 않고 대게
+책 바깥, 커뮤니티나 컨퍼런스 아니면 검색을 통해 산발적으로 정보를 얻을
+수밖에 없는데, 책 한 권으로 — 물론 다양한 것들 다루다 보니 대부분 소개
+수준에 그칠 수 밖에 없다 — 검증된 노하우들을 접할 수 있어 많은 도움이
+되었다. 내 불안감을 더는데 도움이 되었다는 게 더 정확한
+표현일지도. 😅&lt;/p&gt;
+
+&lt;p&gt;사실 이 책에서 가장 흥미로웠던 부분은 기술적인 부분이 아닌, Elixir라는
+새로운 프로그래밍 언어를 도입할 때 겪게 되는 정치, 사회적인
+이야기들이었다. 블리처리포트가 기존 기술 스택에서 어려움을 겪던 중
+이를 극복하기 위해 Elixir를 도입하게 된 사례, Bruce A. Tate가 창업한
+Elixir 기반 회사가 엑싯하는 과정에서의 사례(책도 많이 팔고 엑싯도
+하고…) 등 회사 이해관계자들에게 신기술을 소개하고 설득하고 도입을
+결정하고 팀을 키우고… 신생 기술 도입을 둘러싼 여러 가지 문제들에 대한
+현실적인 조언들을 해주고 있다.&lt;/p&gt;
+
+&lt;p&gt;Elixir 도입을 앞두고 있거나 관심은 있지만 주저하고 있는 사람에겐
+이만한 책은 없을 것 같다. 그리고 꼭 Elixir가 아니라도 조직에 새로운
+기술 요소를 도입해보고자 하는 사람에게도 일부 도움이 될 수 있을 것
+같다. 🧪&lt;/p&gt;
+</description>
+        <pubDate>Thu, 07 Nov 2019 00:00:00 +0000</pubDate>
+        <link>https://ragiragi.github.io//2019/11/07/adopting-elixir/</link>
+        <guid isPermaLink="true">https://ragiragi.github.io//2019/11/07/adopting-elixir/</guid>
+      </item>
+    
+      <item>
+        <title>Anonymous Function and the Dot</title>
+        <description>&lt;p&gt;elixir를 처음 접할 때 가장 🤔스러웠던 부분은 익명 함수(anonymous
+function) 호출 부분이었다. 익명함수를 호출하기 위해서는
+&lt;code class=&quot;highlighter-rouge&quot;&gt;func_name.(args)&lt;/code&gt;와 같은 문법을 써야하는데&lt;/p&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;say&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;IO&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;puts&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#Function&amp;lt;6.128620087/1 in :erl_eval.expr/5&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;    &lt;span class=&quot;c1&quot;&gt;# X&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;**&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;CompileError&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;iex:&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;undefined&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;   &lt;span class=&quot;c1&quot;&gt;# O&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Hello&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;반면 기명 함수(named function)는 일반적인 방법으로 호출 가능하다.&lt;/p&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;err&quot;&gt;$&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;e&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;defmodule Greeter, do: (def say(s), do: IO.puts(s))&quot;&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;iex&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;m&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Greeter&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Hello&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Hello&lt;/span&gt;
+&lt;span class=&quot;ss&quot;&gt;:ok&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;이런 특징을 보이는 이유는 &lt;a href=&quot;https://elixirforum.com/t/anonymous-functions-the-dot-and-parameters/10886/7&quot;&gt;언어 설계 때문&lt;/a&gt;이라 한다. Elixir는
+lisp-2 스타일 언어로서, 함수(named function)와 변수(variables)가 각기
+다른 namespace를 사용하기 때문에 일반 함수 호출 문법으로는 변수에
+바인드 된 함수를 찾을 수가 없는 것. (반대로 lisp-1 계열 언어들은
+함수와 변수가 같은 namespace를 사용한다.) 결국 별도의 함수 호출 문법이
+필요했고 그게 바로 “.” 호출이라 한다. 물론 ‘1차로 함수 영역에서 찾고
+없으면 2차로 변수 영역에 정의된 함수를 찾아주면 좋지 않을까?’라는 단순
+무식한 생각도 들지만 분명 그로 인한 부작용도 있을 터이고 이는 언어
+&lt;del&gt;취향&lt;/del&gt; 설계의 영역이니 그냥 따르기로…&lt;/p&gt;
+
+&lt;h5 id=&quot;footnote&quot;&gt;Footnote&lt;/h5&gt;
+&lt;ul&gt;
+  &lt;li&gt;다른 lisp-2 스타일로는 Common Lisp, Ruby, Perl, Erlang 이 있다고
+한다.&lt;/li&gt;
+  &lt;li&gt;쉽게 설명해보려다가 실패한듯한 &lt;a href=&quot;https://stackoverflow.com/a/18023790/1105414&quot;&gt;José의 글&lt;/a&gt;도 참고해볼 만하다.&lt;/li&gt;
+  &lt;li&gt;Joe Armstrong(Erlang 창시자)이 일찍이 오래전 &lt;a href=&quot;https://joearms.github.io/published/2013-05-31-a-week-with-elixir.html&quot;&gt;elixir 리뷰&lt;/a&gt; 글에서
+“이거 지금 안고치면 나처럼 20년동안 사람들에게 설명하느라 시간
+허비하고 머리가 하얗게 세버릴 껄?”라고 충고 했었다. 🤣&lt;/li&gt;
+&lt;/ul&gt;
+
+</description>
+        <pubDate>Fri, 01 Nov 2019 00:00:00 +0000</pubDate>
+        <link>https://ragiragi.github.io//2019/11/01/anonymous-function-and-the-dot/</link>
+        <guid isPermaLink="true">https://ragiragi.github.io//2019/11/01/anonymous-function-and-the-dot/</guid>
+      </item>
+    
+
+    
+      
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
 
   </channel>
 </rss>
