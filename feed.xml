@@ -5,10 +5,50 @@
     <description>A programmers note</description>
     <link>https://ragiragi.github.io//</link>
     <atom:link href="https://ragiragi.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 10 Nov 2019 04:58:29 +0000</pubDate>
-    <lastBuildDate>Sun, 10 Nov 2019 04:58:29 +0000</lastBuildDate>
+    <pubDate>Sun, 17 Nov 2019 14:56:01 +0000</pubDate>
+    <lastBuildDate>Sun, 17 Nov 2019 14:56:01 +0000</lastBuildDate>
     <generator>Jekyll v3.6.3</generator>
 
+    
+      <item>
+        <title>José Trivia</title>
+        <description>&lt;p&gt;&lt;em&gt;&amp;lt;Image from &lt;a href=&quot;https://www.welcometothejungle.com/en/articles/btc-elixir-jose-valim&quot;&gt;welcometothejungle.com&lt;/a&gt;&amp;gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Elixir를 만든 José Valim과 관련한 몇가지 이야기들&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;브라질리언. ‘조제’라고 읽는다. 그의 회사인 Plataformatec 역시 브라질 회사.&lt;/li&gt;
+  &lt;li&gt;CS 전공 아님&lt;/li&gt;
+  &lt;li&gt;Elixir이전에 Rails 코어팀 멤버였고 그만둔지 오래되었지만 &lt;a href=&quot;https://github.com/rails/rails/graphs/contributors&quot;&gt;아직 Rails 컨트리뷰션 순위 7위&lt;/a&gt;.
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;https://rubyheroes.com/heroes/2010&quot;&gt;2010년 Ruby Hero&lt;/a&gt;에 뽑히기도&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Rails 성능 개선, 특히 멀티쓰레드 부분을 파고 있던 찰라에 터널증후군으로 오래동안 코딩을 쉬어야 했고 코딩을 못하게 된 그는 동시성 관련 페이퍼들을 읽다가 Erlang에 빠져들게 되었다.
+    &lt;ul&gt;
+      &lt;li&gt;
+        &lt;blockquote&gt;
+          &lt;p&gt;“The story begins with a keyboard, a rebellious wrist, and a restless mind. You see, José was one of the most helpless creatures in all of nature: a programmer with a wrist injury.” – &lt;a href=&quot;https://pragprog.com/book/tvmelixir/adopting-elixir&quot;&gt;Adopting Elixir&lt;/a&gt;&lt;/p&gt;
+        &lt;/blockquote&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.welcometothejungle.com/en/articles/btc-elixir-jose-valim&quot;&gt;Ruby/Rails 경험을 통해 오픈소스/프로그래밍 언어 역시 마케팅이 중요하다는 걸 알고 있다.&lt;/a&gt;
+    &lt;ul&gt;
+      &lt;li&gt;발표, 글 뿐만 아니라 Phoenix, Ecto 같은 많은 대표 프로젝트들에 관여하고 있고 커뮤니티에도 자주 등장한다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.twitch.tv/collections/YDM6eKu6bhV1Nw&quot;&gt;2018년 Advent of Code를 라이브 코딩&lt;/a&gt;한 적이 있다.
+    &lt;ul&gt;
+      &lt;li&gt;에디터는 Sublime Text를 쓴다.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Sun, 17 Nov 2019 00:00:00 +0000</pubDate>
+        <link>https://ragiragi.github.io//2019/11/17/jose-trivia/</link>
+        <guid isPermaLink="true">https://ragiragi.github.io//2019/11/17/jose-trivia/</guid>
+      </item>
     
       <item>
         <title>엘릭서 도입하기</title>
@@ -103,6 +143,8 @@ lisp-2 스타일 언어로서, 함수(named function)와 변수(variables)가 �
     
       
         
+      
+    
       
     
       
