@@ -18,5 +18,5 @@ pre {
   word-wrap: break-word;
 }
 
-li code,
+li > code,
 p code { padding: quarter($base-spacing-unit) half($base-spacing-unit); }
