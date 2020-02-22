@@ -5,10 +5,40 @@
     <description>A programmers note</description>
     <link>https://ragiragi.github.io//</link>
     <atom:link href="https://ragiragi.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 02 Jan 2020 12:57:29 +0000</pubDate>
-    <lastBuildDate>Thu, 02 Jan 2020 12:57:29 +0000</lastBuildDate>
+    <pubDate>Sat, 22 Feb 2020 05:36:33 +0000</pubDate>
+    <lastBuildDate>Sat, 22 Feb 2020 05:36:33 +0000</lastBuildDate>
     <generator>Jekyll v3.6.3</generator>
 
+    
+      <item>
+        <title>Phoenix Framework Endpoint URL 설정</title>
+        <description>&lt;p&gt;애플리케이션을 로컬 개발 환경 수준에서 서비스 서버로 올리기 시작하면 가장 먼저 드러나는 문제가 서비스 환경에 따른 URL 렌더링 이슈인데 Phoenix Framework에서는 Endpoint url 설정을 통해 이를 지원한다.&lt;/p&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Endpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;http:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;port:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;4000&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;url:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;host:&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;beta.example.com&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;scheme:&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;https&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;Example.Router.Helpers.xxx_path/4&lt;/code&gt;와 같이 라우터 모듈을 통해 생성된 url은 위의 설정값에 따라 생성이 되고, 만약 해당 값을 직접 참조하고 싶다면 &lt;code class=&quot;highlighter-rouge&quot;&gt;Phoenix.Endpoint.url/0&lt;/code&gt;을 이용할 수도 있다. 만약 설정하지 않으면 endpoint의 http, https 설정을 따라간다.&lt;/p&gt;
+
+&lt;p&gt;물론 애플리케이션에 직접 코딩하지 않고 환경변수를 통한 주입도 가능하다.&lt;/p&gt;
+
+&lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:example&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Endpoint&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;url:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;host:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:system&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;sd&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;SERVICE_HOST&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}],&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://hexdocs.pm/phoenix/1.4.14/Phoenix.Endpoint.html#module-runtime-configuration&quot;&gt;https://hexdocs.pm/phoenix/1.4.14/Phoenix.Endpoint.html#module-runtime-configuration&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;Phoenix Framework의 Endpoint 모듈은 웹 요청을 받아들이는 시작 지점으로 역할에 걸맞게 다양한 설정 포인트를 가지고 있다. 하지만 개발 도중엔 딱히 손댈 일이 없어 아무 생각 없이 초기 설정 그대로 사용하기 마련이라 Endpoint 설정을 통해 어떤 것들을 할 수 있는지 모르고 넘어가기 쉬운 것 같다.&lt;/p&gt;
+</description>
+        <pubDate>Sat, 22 Feb 2020 00:00:00 +0000</pubDate>
+        <link>https://ragiragi.github.io//2020/02/22/phoenix-endpoint-url/</link>
+        <guid isPermaLink="true">https://ragiragi.github.io//2020/02/22/phoenix-endpoint-url/</guid>
+      </item>
     
       <item>
         <title>2019년 기록</title>
@@ -377,6 +407,10 @@ lisp-2 스타일 언어로서, 함수(named function)와 변수(variables)가 �
     
       
         
+      
+    
+      
+    
       
     
       
