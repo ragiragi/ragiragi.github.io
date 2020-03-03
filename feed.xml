@@ -5,8 +5,8 @@
     <description>A programmers note</description>
     <link>https://ragiragi.github.io//</link>
     <atom:link href="https://ragiragi.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Tue, 03 Mar 2020 15:26:51 +0000</pubDate>
-    <lastBuildDate>Tue, 03 Mar 2020 15:26:51 +0000</lastBuildDate>
+    <pubDate>Tue, 03 Mar 2020 15:33:26 +0000</pubDate>
+    <lastBuildDate>Tue, 03 Mar 2020 15:33:26 +0000</lastBuildDate>
     <generator>Jekyll v3.6.3</generator>
 
     
@@ -14,15 +14,15 @@
         <title>mix format 설정하기</title>
         <description>&lt;p&gt;언젠가부터 auto code formatter, code format lint rule와 같은 소스 코드
 포맷팅과 관련한 자동화 도구가 유행하더니 GO였나 ELM이었나 프로그램
-언어 차원에서 포맷터를 제공하고 규칙까지 강제하는게 유행하기
-시작했다. 확실히 코드 작성시 형식보다 의미에 집중할 수 있어 도움이
-되는 것 같다.&lt;/p&gt;
+언어 차원에서 포맷터를 제공하고 규칙까지 강제하는 게 유행하기
+시작했다. 확실히 코드 작성 시 형식보다 의미에 집중할 수 있어 도움이
+되더라.&lt;/p&gt;
 
 &lt;p&gt;elixir도 &lt;code class=&quot;highlighter-rouge&quot;&gt;mix format&lt;/code&gt;이라는 코드 포맷터를 내장하기 시작했는데, 여느
- 언어차원에 제공되는 포맷터와 마찬가지로 표준 컨벤션만 제공하고
- 이렇다할 설정 옵션이 없다.&lt;/p&gt;
+ 언어 차원에 제공되는 포맷터와 마찬가지로 표준 컨벤션만 제공하고
+ 이렇다 할 설정 옵션이 없다.&lt;/p&gt;
 
-&lt;p&gt;그나마 &lt;a href=&quot;https://hexdocs.pm/elixir/Code.html#format_string!/2-options&quot;&gt;몇가지 설정할 수 있는
+&lt;p&gt;그나마 &lt;a href=&quot;https://hexdocs.pm/elixir/Code.html#format_string!/2-options&quot;&gt;몇 가지 설정할 수 있는
 부분&lt;/a&gt;이
 있긴 있는데 내 눈에 띄는 건 괄호 적용 규칙 정도. 표준 컨벤션에서는 함수/매크로
 호출에 괄호로 감싸는 걸 기본으로 하지만 몇몇 DSL에서는 괄호가 없는
@@ -42,7 +42,7 @@
 &lt;p&gt;&lt;img src=&quot;/images/posts/2020-03-03-drake-ecto-query.png&quot; alt=&quot;&quot; /&gt;
 &lt;em&gt;&amp;lt; … peace …&amp;gt;&lt;/em&gt;&lt;/p&gt;
 
-&lt;p&gt;매 프로젝트 마다 하나하나 설정할 필요는 없고 각 라이브러리에 정의되어있는 설정(exports)를 불러와서 사용할 수도 있다.&lt;/p&gt;
+&lt;p&gt;매 프로젝트마다 하나하나 설정할 필요는 없고 각 라이브러리에 정의되어있는 설정(exports)을 불러와서 사용할 수도 있다.&lt;/p&gt;
 
 &lt;div class=&quot;language-elixir highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# .formatter.exs&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
@@ -54,8 +54,8 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;그래도 충분히 적응됐다고 생각했는데도, 코드 저장하자마자 무식하게
-기계적인 룰을 적용 당해버리는 모습을 보면 - 취향을 거세당한 느낌이라 -
+&lt;p&gt;그래도 충분히 적응됐다고 생각했는데, 코드 저장하자마자 무식하게
+기계적인 룰을 적용당해버리는 모습을 보면 - 취향을 거세당한 느낌이라 -
 매번 좋지만은 않다. 🙈&lt;/p&gt;
 </description>
         <pubDate>Tue, 03 Mar 2020 00:00:00 +0000</pubDate>
