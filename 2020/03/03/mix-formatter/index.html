@@ -6,9 +6,9 @@
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-  <title>엘릭서 도입하기</title>
-  <meta name='description' content="Adopting Elixir - From Concept to Production">
-  <link rel='canonical' href="https://ragiragi.github.io//2019/11/07/adopting-elixir/">
+  <title>mix format 설정하기</title>
+  <meta name='description' content="언젠가부터 auto code formatter, code format lint rule와 같은 소스 코드포맷팅과 관련한 자동화 도구가 유행하더니 GO였나 ELM이었나 프로그램언어 차원에서 포맷터를 제공하고 규칙까지 강제하는게 유행하기시작했다. 확실히 코드 작성시 형식보다 의미에 집...">
+  <link rel='canonical' href="https://ragiragi.github.io//2020/03/03/mix-formatter/">
   <link rel='alternate' type='application/rss+xml' title='A Programmer's Note' href="https://ragiragi.github.io//feed.xml">
   <link rel="stylesheet" id="font-bitter-css" href="//fonts.googleapis.com/css?family=Bitter:400,700" type="text/css" media="screen">
   <style>
@@ -133,8 +133,6 @@
     
 
 
-  <meta itemprop='og:image' content='https://ragiragi.github.io//images/posts/2019-11-07-adopting-elixir.jpg'>
-
 
 <div class='o-wrapper'>
 
@@ -142,44 +140,58 @@
     <div class='o-grid__col'>
       <article class='c-post' itemscope itemtype='http://schema.org/BlogPosting'>
 
-        <h1 class='c-post__title u-text-center'>엘릭서 도입하기</h1>
+        <h1 class='c-post__title u-text-center'>mix format 설정하기</h1>
 
-        <time class='c-post__date' datetime='2019-11-07T00:00:00+00:00' itemprop='datePublished'>07 Nov 2019</time>
+        <time class='c-post__date' datetime='2020-03-03T00:00:00+00:00' itemprop='datePublished'>03 Mar 2020</time>
 
         <div class='c-content' itemprop='articleBody'>
           
-  <img src='/images/posts/2019-11-07-adopting-elixir.jpg' class='c-post__image' alt='엘릭서 도입하기'>
 
+          <p>언젠가부터 auto code formatter, code format lint rule와 같은 소스 코드
+포맷팅과 관련한 자동화 도구가 유행하더니 GO였나 ELM이었나 프로그램
+언어 차원에서 포맷터를 제공하고 규칙까지 강제하는게 유행하기
+시작했다. 확실히 코드 작성시 형식보다 의미에 집중할 수 있어 도움이
+되는 것 같다.</p>
 
-          <p><a href="https://pragprog.com/book/tvmelixir/adopting-elixir"><strong>Adopting Elixir</strong> - <em>From Concept to Production</em></a></p>
+<p>elixir도 <code class="highlighter-rouge">mix format</code>이라는 코드 포맷터를 내장하기 시작했는데, 여느
+ 언어차원에 제공되는 포맷터와 마찬가지로 표준 컨벤션만 제공하고
+ 이렇다할 설정 옵션이 없다.</p>
 
-<p>보통 특정 프로그래밍 언어를 주제로 하는 책들이라면 문법, 타입, 내장
-라이브러리 혹은 프레임워크를 다루는 것들이 일반적이지만 이 책은 조금
-궤를 달리한다. 다른 책들이 잘 다루지 않는 배포, 프로파일링, 코드 품질
-관리, 레거시 시스템 전환, 로깅, 에러 트레이싱 등과 같이 Elixir
-프로그래밍 언어로 만든 제품을 실제 프로덕션 환경에 올릴 때 맞닥뜨리게
-되는 문제를 이야기한다.</p>
+<p>그나마 <a href="https://hexdocs.pm/elixir/Code.html#format_string!/2-options">몇가지 설정할 수 있는
+부분</a>이
+있긴 있는데 내 눈에 띄는 건 괄호 적용 규칙 정도. 표준 컨벤션에서는 함수/매크로
+호출에 괄호로 감싸는 걸 기본으로 하지만 몇몇 DSL에서는 괄호가 없는
+편이 더 자연스러울 때도 있다. 이럴 때 사용할 수 있는 옵션이 <code class="highlighter-rouge">:local_without_parens</code>.</p>
 
-<p>이런 부분들은 노하우의 영역이라 신생 언어의 경우 자료가 많지 않고 대게
-책 바깥, 커뮤니티나 컨퍼런스 아니면 검색을 통해 산발적으로 정보를 얻을
-수밖에 없는데, 책 한 권으로 — 물론 다양한 것들 다루다 보니 대부분 소개
-수준에 그칠 수 밖에 없다 — 검증된 노하우들을 접할 수 있어 많은 도움이
-되었다. 내 불안감을 더는데 도움이 되었다는 게 더 정확한
-표현일지도. 😅</p>
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .formatter.exs</span>
 
-<p>사실 이 책에서 가장 흥미로웠던 부분은 기술적인 부분이 아닌, Elixir라는
-새로운 프로그래밍 언어를 도입할 때 겪게 되는 정치, 사회적인
-이야기들이었다. 블리처리포트가 기존 기술 스택에서 어려움을 겪던 중
-이를 극복하기 위해 Elixir를 도입하게 된 사례, Bruce A. Tate가 창업한
-Elixir 기반 회사가 엑싯하는 과정에서의 사례(책도 많이 팔고 엑싯도
-하고…) 등 회사 이해관계자들에게 신기술을 소개하고 설득하고 도입을
-결정하고 팀을 키우고… 신생 기술 도입을 둘러싼 여러 가지 문제들에 대한
-현실적인 조언들을 해주고 있다.</p>
+<span class="p">[</span>
+  <span class="n">locals_without_parens</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="ss">from:</span> <span class="m">2</span><span class="p">,</span>
+    <span class="o">...</span>
+  <span class="p">]</span>
+<span class="p">]</span>
 
-<p>Elixir 도입을 앞두고 있거나 관심은 있지만 주저하고 있는 사람에겐
-이만한 책은 없을 것 같다. 그리고 꼭 Elixir가 아니라도 조직에 새로운
-기술 요소를 도입해보고자 하는 사람에게도 일부 도움이 될 수 있을 것
-같다. 🧪</p>
+</code></pre></div></div>
+
+<p><img src="/images/posts/2020-03-03-drake-ecto-query.png" alt="" />
+<em>&lt; … peace …&gt;</em></p>
+
+<p>매 프로젝트 마다 하나하나 설정할 필요는 없고 각 라이브러리에 정의되어있는 설정(exports)를 불러와서 사용할 수도 있다.</p>
+
+<div class="language-elixir highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># .formatter.exs</span>
+<span class="p">[</span>
+  <span class="ss">import_deps:</span> <span class="p">[</span><span class="ss">:ecto</span><span class="p">,</span> <span class="ss">:ecto_sql</span><span class="p">]</span>
+<span class="p">]</span>
+</code></pre></div></div>
+
+<p><a href="https://hexdocs.pm/mix/master/Mix.Tasks.Format.html#module-importing-dependencies-configuration">https://hexdocs.pm/mix/master/Mix.Tasks.Format.html#module-importing-dependencies-configuration</a></p>
+
+<hr />
+
+<p>그래도 충분히 적응됐다고 생각했는데도, 코드 저장하자마자 무식하게
+기계적인 룰을 적용 당해버리는 모습을 보면 - 취향을 거세당한 느낌이라 -
+매번 좋지만은 않다. 🙈</p>
 
         </div>
 
@@ -187,7 +199,9 @@ Elixir 기반 회사가 엑싯하는 과정에서의 사례(책도 많이 팔고
           
             <a href='/tag/elixir'>elixir</a>
           
-            <a href='/tag/book'>book</a>
+            <a href='/tag/mix'>mix</a>
+          
+            <a href='/tag/formatter'>formatter</a>
           
         </div>
 
